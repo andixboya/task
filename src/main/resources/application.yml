@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:mydb
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
+  jpa:
+    database: h2
+    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create
+      use-new-id-generator-mappings: true
+  liquibase:
+    enabled: true
+    drop-first: false
+    change-log: /db/changelog/db.changelog-master.xml
+    default-schema: public
+---
+#spring:
+#  datasource:
+#    url: ${JDBC_URL:jdbc:postgresql://localhost:5432/message_database}
+#    username: ${DB_USER:postgres}
+#    password: ${DB_PASS:postgres}
+#    driverClassName: org.postgresql.Driver
+#  jpa:
+#    database: POSTGRESQL
+#    show-sql: false
+#    hibernate:
+#      ddl-auto: create
+#      use-new-id-generator-mappings: true
+#    properties.hibernate.temp.use_jdbc_metadata_defaults: false
+#    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
